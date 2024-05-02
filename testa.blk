@@ -4,7 +4,7 @@ bin_dump_file:t=""
 mission_settings{
   player{
     army:i=1
-    wing:t="armada_01"
+    wing:t="t1_player01"
   }
 
   player_teamB{
@@ -44,7 +44,7 @@ mission_settings{
   }
 
   spectator_points{
-    spectatorPoint:t="area_01"
+    spectatorPoint:t="t1_spawnarea_01"
   }
 }
 
@@ -86,43 +86,8 @@ triggers{
         canSpawnOnNeutral:b=no
         showOnMap:b=yes
         radius:r=-1
-        target:t="area_01"
+        target:t="t1_spawnarea_01"
         team:t="A"
-
-        tags{
-          air:b=yes
-        }
-      }
-
-      missionMarkAsRespawnPoint{
-        loc_name:t=""
-        spawnEffect:b=no
-        isStrictSpawn:b=no
-        resetStrictSpawnIndex:b=no
-        isAirfield:b=no
-        isUnit:b=no
-        forceCreate:b=no
-        useExisting:b=no
-        ignoreTeamsOnReuse:b=no
-        isIndividual:b=no
-        onlyOnePlayerPerSpawnPoint:b=no
-        removeAreas:b=no
-        replaceAreas:b=no
-        canSpawnOnNeutral:b=no
-        showOnMap:b=yes
-        radius:r=-1
-        target:t="area_01"
-        team:t="A"
-
-        tags{
-          air:b=yes
-        }
-      }
-
-      gameMPChangeScore{
-        value:i=5000
-        valueSystem:t="amount"
-        team:t="Both"
       }
     }
 
@@ -205,7 +170,7 @@ units{
   }
 
   armada{
-    name:t="armada_01"
+    name:t="t1_player01"
     tm:m=[[-0.422618, 0, 0.906308] [0, 1, 0] [-0.906308, 0, -0.422618] [-3671.61, 3000, -12429.7]]
     unit_class:t="rafale_m"
     objLayer:i=1
@@ -263,7 +228,7 @@ units{
 }
 
 areas{
-  area_01{
+  t1_spawnarea_01{
     type:t="Sphere"
     tm:m=[[600, 0, 0] [0, 600, 0] [0, 0, 600] [-2775.05, 3000, -10148.7]]
     objLayer:i=0
