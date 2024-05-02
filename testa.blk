@@ -10,6 +10,7 @@ mission_settings{
   player_teamB{
     army:i=2
     wing:t="ships_01"
+    wing:t="t2_player01"
   }
 
   mission{
@@ -102,6 +103,31 @@ triggers{
 
         zoneDefenders{}
         capture_tags{
+          air:b=yes
+        }
+      }
+
+      missionMarkAsRespawnPoint{
+        loc_name:t=""
+        spawnEffect:b=no
+        isStrictSpawn:b=no
+        resetStrictSpawnIndex:b=no
+        isAirfield:b=no
+        isUnit:b=no
+        forceCreate:b=no
+        useExisting:b=no
+        ignoreTeamsOnReuse:b=no
+        isIndividual:b=no
+        onlyOnePlayerPerSpawnPoint:b=no
+        removeAreas:b=no
+        replaceAreas:b=no
+        canSpawnOnNeutral:b=no
+        showOnMap:b=yes
+        radius:r=-1
+        target:t="t2_spawnarea_01"
+        team:t="B"
+
+        tags{
           air:b=yes
         }
       }
@@ -241,6 +267,53 @@ units{
 
     way{}
   }
+
+  armada{
+    name:t="t2_player01"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-18399.5, 3000, 19393.5]]
+    unit_class:t="a-20g"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=5
+      player:b=yes
+      use_search_radar:b=yes
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
 }
 
 areas{
@@ -263,6 +336,14 @@ areas{
   area_01{
     type:t="Point"
     tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10114.4, 57.4529, 7257.03]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  t2_spawnarea_01{
+    type:t="Sphere"
+    tm:m=[[600, 0, 0] [0, 600, 0] [0, 0, 600] [-17876.1, 3000, 19797]]
     objLayer:i=0
 
     props{}
