@@ -1,0 +1,293 @@
+selected_tag:t=""
+bin_dump_file:t=""
+
+mission_settings{
+  player{
+    army:i=1
+    wing:t="armada_01"
+  }
+
+  player_teamB{
+    army:i=2
+    wing:t="ships_01"
+  }
+
+  mission{
+    type:t="teamBattle"
+    level:t="levels/air_skyscraper_city.bin"
+    environment:t="Day"
+    weather:t="good"
+    locName:t="test"
+    locDesc:t="test"
+    gt_mp_tickets:b=yes
+    scoreLimit:i=5000
+    isBotsAllowed:b=yes
+
+    allowedUnitTypes{
+      isAirplanesAllowed:b=yes
+      isTanksAllowed:b=no
+      isShipsAllowed:b=yes
+      isHelicoptersAllowed:b=no
+    }
+
+    mission{
+      difficulty:t="realistic"
+      useAlternativeMapCoord:b=no
+      randomSpawnTeams:b=no
+      remapAiTankModels:b=yes
+    }
+  }
+
+  atmosphere{
+    pressure:r=760
+    temperature:r=15
+  }
+
+  spectator_points{
+    spectatorPoint:t="area_01"
+  }
+}
+
+imports{}
+triggers{
+  isCategory:b=yes
+  is_enabled:b=yes
+
+  Trigger_01{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=no
+    }
+
+    events{
+      initMission{}
+    }
+
+    conditions{}
+    actions{
+      missionMarkAsRespawnPoint{
+        loc_name:t=""
+        spawnEffect:b=no
+        isStrictSpawn:b=no
+        resetStrictSpawnIndex:b=no
+        isAirfield:b=no
+        isUnit:b=no
+        forceCreate:b=no
+        useExisting:b=no
+        ignoreTeamsOnReuse:b=no
+        isIndividual:b=no
+        onlyOnePlayerPerSpawnPoint:b=no
+        removeAreas:b=no
+        replaceAreas:b=no
+        canSpawnOnNeutral:b=no
+        showOnMap:b=yes
+        radius:r=-1
+        target:t="area_01"
+        team:t="A"
+
+        tags{
+          air:b=yes
+        }
+      }
+
+      missionMarkAsRespawnPoint{
+        loc_name:t=""
+        spawnEffect:b=no
+        isStrictSpawn:b=no
+        resetStrictSpawnIndex:b=no
+        isAirfield:b=no
+        isUnit:b=no
+        forceCreate:b=no
+        useExisting:b=no
+        ignoreTeamsOnReuse:b=no
+        isIndividual:b=no
+        onlyOnePlayerPerSpawnPoint:b=no
+        removeAreas:b=no
+        replaceAreas:b=no
+        canSpawnOnNeutral:b=no
+        showOnMap:b=yes
+        radius:r=-1
+        target:t="area_01"
+        team:t="A"
+
+        tags{
+          air:b=yes
+        }
+      }
+
+      gameMPChangeScore{
+        value:i=5000
+        valueSystem:t="amount"
+        team:t="Both"
+      }
+    }
+
+    else_actions{}
+  }
+}
+
+mission_objectives{
+  isCategory:b=yes
+  is_enabled:b=yes
+}
+
+variables{}
+dialogs{}
+airfields{}
+effects{}
+units{
+  ships{
+    name:t="ships_01"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-20595.1, 0, 1150]]
+    unit_class:t="germ_escort_typem1943"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=2
+      formation_type:t="cols"
+      formation_div:i=3
+      formation_step:p2=2.5, 2
+      formation_noise:p2=0.1, 0.1
+      attack_type:t="kill_player"
+      use_search_radar:b=yes
+    }
+
+    way{
+      ships_01_wp_01{
+        type:t="normal"
+        tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-19627.1, 657.883, 468.441]]
+
+        props{
+          speed:r=300
+          moveType:t="MOVETO_STRAIGHT"
+        }
+      }
+
+      ships_01_wp_02{
+        type:t="normal"
+        tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-19666.1, 0, 389.808]]
+
+        props{
+          speed:r=300
+          moveType:t="MOVETO_STRAIGHT"
+        }
+      }
+
+      ships_01_wp_03{
+        type:t="normal"
+        tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-19666.1, 0, 389.808]]
+
+        props{
+          speed:r=300
+          moveType:t="MOVETO_STRAIGHT"
+        }
+      }
+    }
+  }
+
+  armada{
+    name:t="armada_01"
+    tm:m=[[-0.422618, 0, 0.906308] [0, 1, 0] [-0.906308, 0, -0.422618] [-3671.61, 3000, -12429.7]]
+    unit_class:t="rafale_m"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=1
+    bulletsCount1:i=1
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    modification:t="new_compressor_jet"
+    modification:t="hydravlic_power"
+    modification:t="cd_98"
+    modification:t="hp_105_jet"
+    modification:t="structure_str"
+    modification:t="f_4c_g_suit"
+    modification:t="new_cover"
+    modification:t="M60_belt_pack"
+    modification:t="M60_air_targets"
+    modification:t="M60_armor_targets"
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=1
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=5
+      player:b=yes
+      use_search_radar:b=yes
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+}
+
+areas{
+  area_01{
+    type:t="Sphere"
+    tm:m=[[600, 0, 0] [0, 600, 0] [0, 0, 600] [-2775.05, 3000, -10148.7]]
+    objLayer:i=0
+
+    props{}
+  }
+}
+
+objLayers{
+  layer{
+    enabled:b=yes
+  }
+
+  layer{
+    enabled:b=yes
+  }
+
+  layer{
+    enabled:b=yes
+  }
+
+  layer{
+    enabled:b=yes
+  }
+}
+
+wayPoints{}
