@@ -20,7 +20,10 @@ mission_settings{
     locName:t="test"
     locDesc:t="test"
     gt_mp_tickets:b=yes
+    gt_mp_capture:b=yes
     scoreLimit:i=5000
+    ctaCaptureZoneEqualPenaltyMul:r=2
+    ctaCaptureZoneDiffPenaltyExp:r=10
     isBotsAllowed:b=yes
 
     allowedUnitTypes{
@@ -88,6 +91,19 @@ triggers{
         radius:r=-1
         target:t="t1_spawnarea_01"
         team:t="A"
+      }
+
+      missionMarkAsCaptureZone{
+        army:i=0
+        timeMultiplier:r=1
+        disableZone:b=no
+        name_for_respawn_base:t=""
+        target:t="capture_zone_01"
+
+        zoneDefenders{}
+        capture_tags{
+          air:b=yes
+        }
       }
     }
 
@@ -231,6 +247,22 @@ areas{
   t1_spawnarea_01{
     type:t="Sphere"
     tm:m=[[600, 0, 0] [0, 600, 0] [0, 0, 600] [-2775.05, 3000, -10148.7]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  capture_zone_01{
+    type:t="Sphere"
+    tm:m=[[600, 0, 0] [0, 600, 0] [0, 0, 600] [-10442.8, 3000, 6232]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  area_01{
+    type:t="Point"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-10114.4, 57.4529, 7257.03]]
     objLayer:i=0
 
     props{}
