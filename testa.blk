@@ -214,7 +214,7 @@ units{
   armada{
     name:t="t1_player01"
     tm:m=[[-0.422618, 0, 0.906308] [0, 1, 0] [-0.906308, 0, -0.422618] [-3671.61, 3000, -12429.7]]
-    unit_class:t="rafale_m"
+    unit_class:t="f_15a"
     objLayer:i=1
     closed_waypoints:b=no
     isShipSpline:b=no
