@@ -1,0 +1,280 @@
+selected_tag:t=""
+bin_dump_file:t=""
+
+mission_settings{
+  player{
+    army:i=1
+    wing:t="tankModels_01"
+  }
+
+  player_teamB{
+    army:i=2
+    wing:t="tankModels_02"
+  }
+
+  mission{
+    type:t="teamBattle"
+    level:t="levels/air_skyscraper_city.bin"
+    environment:t="Day"
+    weather:t="good"
+    locName:t="Skyscrapper 2"
+    gt_mp_tickets:b=yes
+  }
+
+  atmosphere{
+    pressure:r=760
+    temperature:r=15
+  }
+
+  aiParams{
+    aiEffectivenessViscosity:r=90
+    effectivenessDistances:p2=2500, 7000
+  }
+}
+
+imports{}
+triggers{
+  isCategory:b=yes
+  is_enabled:b=yes
+
+  Trigger_01{
+    is_enabled:b=yes
+    comments:t=""
+
+    props{
+      actionsType:t="PERFORM_ONE_BY_ONE"
+      conditionsType:t="ALL"
+      enableAfterComplete:b=no
+    }
+
+    events{}
+    conditions{}
+    actions{
+      missionMarkAsRespawnPoint{
+        loc_name:t="B Team Spawn point"
+        spawnEffect:b=no
+        isStrictSpawn:b=no
+        resetStrictSpawnIndex:b=no
+        isAirfield:b=yes
+        isUnit:b=no
+        forceCreate:b=no
+        useExisting:b=no
+        ignoreTeamsOnReuse:b=no
+        isIndividual:b=no
+        onlyOnePlayerPerSpawnPoint:b=no
+        removeAreas:b=no
+        replaceAreas:b=no
+        canSpawnOnNeutral:b=no
+        showOnMap:b=yes
+        radius:r=-1
+        target:t="t1_spawn_zone"
+        team:t="B"
+
+        tags{
+          air:b=yes
+        }
+      }
+
+      missionMarkAsRespawnPoint{
+        loc_name:t="A Team Spawn Point"
+        spawnEffect:b=no
+        isStrictSpawn:b=no
+        resetStrictSpawnIndex:b=no
+        isAirfield:b=yes
+        isUnit:b=no
+        forceCreate:b=no
+        useExisting:b=no
+        ignoreTeamsOnReuse:b=no
+        isIndividual:b=no
+        onlyOnePlayerPerSpawnPoint:b=no
+        removeAreas:b=no
+        replaceAreas:b=no
+        canSpawnOnNeutral:b=no
+        showOnMap:b=yes
+        radius:r=-1
+        target:t="t1_spawn_zone"
+        team:t="A"
+
+        tags{
+          air:b=yes
+        }
+      }
+    }
+
+    else_actions{}
+  }
+}
+
+mission_objectives{
+  isCategory:b=yes
+  is_enabled:b=yes
+}
+
+variables{}
+dialogs{}
+airfields{}
+effects{}
+units{
+  armada{
+    name:t="tankModels_01"
+    tm:m=[[-0.884346, 0, 0.466833] [0, 1, 0] [-0.466833, 0, -0.884346] [-7562.87, 77.6739, -12763.2]]
+    unit_class:t="rafale_m"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t=""
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=1
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+      player:b=yes
+      use_search_radar:b=yes
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="ACE"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+
+  armada{
+    name:t="tankModels_02"
+    tm:m=[[0.956203, 0, -0.292706] [0, 1, 0] [0.292706, 0, 0.956203] [-15994.4, 50.8228, 11007.2]]
+    unit_class:t="f_15c_msip2"
+    objLayer:i=1
+    closed_waypoints:b=no
+    isShipSpline:b=no
+    shipTurnRadius:r=100
+    weapons:t="f_15c_msip2_aim_120a_tank"
+    bullets0:t=""
+    bullets1:t=""
+    bullets2:t=""
+    bullets3:t=""
+    bulletsCount0:i=0
+    bulletsCount1:i=0
+    bulletsCount2:i=0
+    bulletsCount3:i=0
+    modification:t="new_compressor_jet"
+    modification:t="hydravlic_power"
+    modification:t="cd_98"
+    modification:t="hp_105_jet"
+    modification:t="f_4c_CdMin_Fuse"
+    modification:t="structure_str"
+    modification:t="new_cover"
+    modification:t="countermeasures_belt_pack"
+    modification:t="M60_belt_pack"
+    modification:t="M60_new_gun"
+    crewSkillK:r=0
+    applyAllMods:b=no
+
+    props{
+      army:i=2
+      count:i=1
+      free_distance:r=70
+      floating_distance:r=50
+      minimum_distance_to_earth:r=20
+      altLimit:r=6000
+      attack_type:t="fire_at_will"
+      skill:i=4
+      player:b=yes
+      use_search_radar:b=yes
+      canLeaveRouteForAtack:b=yes
+      accuracy:r=0.9
+      aiEnabled:b=yes
+
+      plane{
+        wing_formation:t="Diamond"
+        row_distances:r=3
+        col_distances:r=3
+        super_formation:t="Diamond"
+        super_row_distances:r=1.5
+        super_col_distances:r=1.5
+        ai_skill:t="NORMAL"
+        task:t="FLY_WAYPOINT"
+      }
+    }
+
+    way{}
+  }
+}
+
+areas{
+  t1_spawn_zone{
+    type:t="Sphere"
+    tm:m=[[-15.3073, 0, 36.9552] [0, 40, 0] [-36.9552, 0, -15.3073] [-7569.9, 77.8962, -12758.9]]
+    objLayer:i=0
+
+    props{
+      infantry:r=0
+    }
+  }
+
+  area_01{
+    type:t="Point"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-7532.73, 72.5009, -12935.7]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  t2_spawn_zone{
+    type:t="Sphere"
+    tm:m=[[60, 0, 0] [0, 60, 0] [0, 0, 60] [-16007.4, 50.7595, 11010.3]]
+    objLayer:i=0
+
+    props{}
+  }
+
+  area_02{
+    type:t="Point"
+    tm:m=[[1, 0, 0] [0, 1, 0] [0, 0, 1] [-15986, 50.2148, 10964.2]]
+    objLayer:i=0
+
+    props{}
+  }
+}
+
+objLayers{
+  layer{
+    enabled:b=yes
+  }
+
+  layer{
+    enabled:b=yes
+  }
+
+  layer{
+    enabled:b=yes
+  }
+
+  layer{
+    enabled:b=yes
+  }
+}
+
+wayPoints{}
